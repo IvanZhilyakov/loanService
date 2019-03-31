@@ -1,12 +1,7 @@
 package com.testTask.loanService.controller;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.testTask.loanService.dto.LoanRequestDTO;
-import com.testTask.loanService.dto.TestDto;
-import com.testTask.loanService.entities.Customer;
 import com.testTask.loanService.exceptions.LoanServiceException;
-import com.testTask.loanService.repository.CustomerRepository;
 import com.testTask.loanService.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +15,6 @@ import java.util.Collections;
 @RestController
 @RequestMapping("/loans")
 public class LoanController {
-    @Autowired
-    CustomerRepository customerRepository;
 
     @Autowired
     LoanService loanService;
@@ -56,7 +49,7 @@ public class LoanController {
     }
 
     @GetMapping(value = "/approvedLoansByUserId", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getAllApprovedLoansByUserId(@RequestParam Long customerId) {
+    public ResponseEntity getAllApprovedLoansByUserId(@RequestParam Long customerId) {
         try {
             return ResponseEntity
                     .status(HttpStatus.OK)
@@ -68,11 +61,12 @@ public class LoanController {
         }
     }
 
-    @PostMapping(value = "/addUser")
-    public String addUser(TestDto testDto) {
-        System.out.println(testDto.getName());
-        customerRepository.save(new Customer("Ivan", "Ivanov"));
-        return "user added";
+    @PostMapping(value = "/addCustomer")
+    public String addCustomer(@RequestParam String name,
+                          @RequestParam String surname,
+                          @RequestParam Boolean inBlackList) {
+        loanService.addCustomer(name, surname, inBlackList);
+        return "customer successfully created";
     }
 
 }

@@ -41,9 +41,8 @@ public class LoanServiceImpl implements LoanService {
 
         validateCustomer(customer);
 
-        Loan loan =new Loan(term, amount, customer, country);
+        Loan loan = new Loan(term, amount, customer, country);
         loanRepository.save(loan);
-        System.out.println(loan.toString());
         return loan.getId();
     }
 
@@ -62,6 +61,13 @@ public class LoanServiceImpl implements LoanService {
         }
 
         return loanRepository.findAllByCustomer(customer);
+    }
+
+    @Override
+    public void addCustomer(String name, String surname, Boolean inBlackList) {
+        Customer customer = new Customer(name, surname);
+        customer.setInBlackList(inBlackList);
+        customerRepository.save(customer);
     }
 
 

@@ -2,6 +2,7 @@ package com.testTask.loanService.service;
 
 import com.testTask.loanService.entities.Loan;
 import com.testTask.loanService.exceptions.LoanServiceException;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ public interface LoanService {
     List<Loan> getAllApprovedLoans();
 
     List<Loan> getAllApprovedLoansByCustomerId(Long customerId) throws LoanServiceException;
+
+    void addCustomer(String name, String surname, Boolean inBlackList);
 }

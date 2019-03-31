@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "62930b8e-cde4-4f47-b9b7-8b47af2d1b54",
+		"name": "loanService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/loans/addCustomer?name=Ivan&surname=Ivanov&inBlackList=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"addCustomer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Ivan"
+						},
+						{
+							"key": "surname",
+							"value": "Ivanov"
+						},
+						{
+							"key": "inBlackList",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "applyForLoan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/loans/applyLoan?loanAmount=1000&term=15&name=Ivan&surname=Ivanov&personalId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"applyLoan"
+					],
+					"query": [
+						{
+							"key": "loanAmount",
+							"value": "1000"
+						},
+						{
+							"key": "term",
+							"value": "15"
+						},
+						{
+							"key": "name",
+							"value": "Ivan"
+						},
+						{
+							"key": "surname",
+							"value": "Ivanov"
+						},
+						{
+							"key": "personalId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allApprovedLoans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/loans/allApprovedLoans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"allApprovedLoans"
+					]
+				},
+				"description": "http://localhost:8080/loans/allApprovedLoans"
+			},
+			"response": []
+		},
+		{
+			"name": "approvedLoansByUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/loans/approvedLoansByUserId?customerId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"approvedLoansByUserId"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

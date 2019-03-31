@@ -4,12 +4,9 @@ import com.testTask.loanService.LoanServiceApplication;
 import com.testTask.loanService.entities.Customer;
 import com.testTask.loanService.repository.CustomerRepository;
 import com.testTask.loanService.repository.LoanRepository;
-import com.testTask.loanService.utils.DetermineCountryService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -29,15 +26,6 @@ public class LoanControllerTest {
 
     @Autowired
     LoanRepository loanRepository;
-
-    @InjectMocks
-    LoanController loanController;
-
-    @Mock
-    DetermineCountryService determineCountryService;
-
-//    @InjectMocks
-//    DetermineCountryService determine = new DetermineCountryServiceImpl();
 
     private Customer customerGood = new Customer("Ivan", "Ivanov");
     private Customer customerInBlackList = new Customer("Petr", "Petrov");
@@ -96,26 +84,4 @@ public class LoanControllerTest {
 
     }
 
-//    @Test
-//    public void testAddUser() {
-//        given()
-////                .contentType("application/json")
-//                .param("name", "qwe")
-//                .param("surname", "qwe2")
-//                .when().post("/loans/addUser").then()
-//                .statusCode(200);
-//    }
-
-//    @Test
-//    public void testApplicationForLoan() {
-//        given()
-//                .param("loanAmount", "100")
-//                .param("term", "15")
-//                .param("name", "qwe")
-//                .param("surname", "qwe2")
-//                .param("personalId", "10")
-//                .when().post("/loans/applyLoan").then()
-//                .statusCode(200);
-//
-//    }
 }

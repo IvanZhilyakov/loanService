@@ -18,12 +18,7 @@ public class DetermineCountryServiceImpl implements DetermineCountryService {
     private String DETERMINE_COUNTRY_SERVICE_ADDRESS;
     @Override
     public String determineCountry(String ip) {
-//        restTemplateBuilder todo установить таймауты
-//                .setConnectTimeout(...)
-//           .setReadTimeout(...)
-//           .build();
-
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, String> params = new HashMap<>();
         params.put("id", ip);
         RestTemplate restTemplate = new RestTemplate();
         String result = null;

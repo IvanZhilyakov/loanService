@@ -1,6 +1,5 @@
 package com.testTask.loanService.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +13,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     private Long id;
 

@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Getter
 @NoArgsConstructor
 public class Loan {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE) // todo используется один сиквенс для кредитов и людей
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer term;
     private Double amount;
